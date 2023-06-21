@@ -1,0 +1,73 @@
+#!dot
+digraph {
+    label="Um welche Art von Freisitz handelt es sich?";
+
+    # Knoten
+    node[shape="box", style="rounded"] Start;
+    node[shape="box", style="rounded", label=<<B>Söller/Altan(e)</B><br/>Offene Plattform<br/>Auf Stürtzen/Mauern> URL="https://de.wikipedia.org/wiki/S%C3%B6ller"] Söller;
+    node[shape="box", style="rounded", label=<<B>Balkon</B><br/>Plattform> URL="https://de.wikipedia.org/wiki/Balkon"] Balkon;
+    node[shape="box", style="rounded", label=<<B>Erker</B><br/>(Auskragung)<br/>Geschlossener Vorbau<br/>Überdacht<br/>Ein- oder mehrstöckig> URL="https://de.wikipedia.org/wiki/Erker"] Erker;
+    node[shape="box", style="rounded", label=<<B>Auslucht</B><br/>Befensteter Vorsprung<br/>Nicht auskragend<br/>Ebenerdig<br/>Sonderform des Erkers> URL="https://de.wikipedia.org/wiki/Auslucht"] Auslucht;
+    node[shape="box", style="rounded", label=<<B>Risalit</B><br/>Hervorspringender Gebäudeteil<br/>Auf ganzer Gebäudehöhe> URL="https://de.wikipedia.org/wiki/Risalit"] Risalit;
+    node[shape="box", style="rounded", label=<<B>Terrasse</B><br/>Plattform<br/>Ebenerdig> URL="https://de.wikipedia.org/wiki/Terrasse_(Architektur)"] Terrasse;
+    node[shape="box", style="rounded", label=<<B>Anbau</B><br/>Vergrößerung der Grundfläche<br/>Kleine, ebenerdige Erweiterung> URL="https://de.wikipedia.org/wiki/Anbau_(Geb%C3%A4ude)"] Anbau;
+    node[shape="box", style="rounded", label=<<B>Pergola</B><br/>Raumbildend<br/>Pfeiler-/Säulengang> URL="https://de.wikipedia.org/wiki/Pergola"] Pergola;
+    node[shape="box", style="rounded", label=<<B>Veranda</B><br/>Halboffen<br/>Überdacht> URL="https://de.wikipedia.org/wiki/Veranda"] Veranda;
+    node[shape="box", style="rounded", label=<<B>Porch</B><br/>Bewohnt<br/>"Einfach" geschlossen>] Porch;
+    node[shape="box", style="rounded", label=<<B>Portico</B><br/>Vor der Haustüre>] Portico;
+    node[shape="box", style="rounded", label=<<B>Beischlag</B><br/>Plattform<br/>Vor der Haustüre> URL="https://de.wikipedia.org/wiki/Beischlag"] Beischlag;
+    node[shape="box", style="rounded", label=<<B>Wintergarten</B><br/>Anbau<br/>Größtenteils aus Glas> URL="https://de.wikipedia.org/wiki/Wintergarten"] Wintergarten;
+    node[shape="box", style="rounded", label=<<B>Geräms</B><br/>Kastenartiger Vorbau<br/>Mit Gittern verschlossen> URL="https://de.wikipedia.org/wiki/Ger%C3%A4ms"] Geräms;
+    node[shape="box", style="rounded", label=<<B>Loggia</B><br/>Raum<br/>Nach außen offen<br/>Eine Nutzungseinheit> URL="https://de.wikipedia.org/wiki/Loggia"] Loggia;
+    node[shape="box", style="rounded", label=<<B>Säulengang</B><br/>Raum<br/>Nach außen offen<br/>Mehrere Nutzungseinheiten<br/>Dient der Erschließung>] Säulengang;
+    node[shape="box", style="rounded", label=<<B>Kolonnade</B><br/>Gerades Gebälk> URL="https://de.wikipedia.org/wiki/Kolonnade"] Kolonnade;
+    node[shape="box", style="rounded", label=<<B>Arkade</B><br/>Bogen zur Außenseite<br/>Von Pfeilern/Säulen getragen> URL="https://de.wikipedia.org/wiki/Arkade"] Arkade;
+    node[shape="box", style="rounded", label=<<B>Bogengang</B><br/>Bogen entlang des Ganges> URL="https://de.wikipedia.org/wiki/Bogengang_(Architektur)"] Bogengang;
+    node[shape="diamond", style=""] if_ebenerdig;
+    node[shape="diamond", style=""] if_ebenerdig_fluchtlinie;
+    node[shape="diamond", style=""] if_ebenerdig_innerhalb_fluchtlinie_nutzungseinheiten;
+    node[shape="diamond", style=""] if_ebenerdig_außerhalbhalb_fluchtlinie_offen;
+    node[shape="diamond", style=""] if_ebenerdig_außerhalbhalb_fluchtlinie_teilweise_offen_plattform;
+    node[shape="diamond", style=""] if_nicht_ebenerdig_fluchtlinie;
+    node[shape="diamond", style=""] if_nicht_ebenerdig_außerhalb_fluchtlinie_offen;
+
+    # Kanten
+    start -> if_ebenerdig;
+    if_ebenerdig -> if_ebenerdig_fluchtlinie [label="Ja"];
+    if_ebenerdig -> if_nicht_ebenerdig_fluchtlinie [label="Nein"];
+    if_ebenerdig_fluchtlinie -> if_ebenerdig_innerhalb_fluchtlinie_nutzungseinheiten [label="Ja"];
+    if_ebenerdig_fluchtlinie -> if_ebenerdig_außerhalbhalb_fluchtlinie_offen [label="Nein"];
+    if_ebenerdig_außerhalbhalb_fluchtlinie_offen -> Anbau [label="Nein"];
+    if_ebenerdig_außerhalbhalb_fluchtlinie_offen -> if_ebenerdig_außerhalbhalb_fluchtlinie_teilweise_offen_plattform [label="Ja"];
+    if_ebenerdig_außerhalbhalb_fluchtlinie_teilweise_offen_plattform -> Pergola [label="Nein"]
+    if_ebenerdig_außerhalbhalb_fluchtlinie_teilweise_offen_plattform -> Terrasse [label="Ja"]
+    if_ebenerdig_innerhalb_fluchtlinie_nutzungseinheiten -> Loggia [label="Eine"];
+    if_ebenerdig_innerhalb_fluchtlinie_nutzungseinheiten -> Säulengang [label="Mehrere"];
+    if_nicht_ebenerdig_fluchtlinie -> Söller [label="Innerhalb"];
+    if_nicht_ebenerdig_fluchtlinie -> if_nicht_ebenerdig_außerhalb_fluchtlinie_offen [label="Außerhalb"];
+    if_nicht_ebenerdig_außerhalb_fluchtlinie_offen -> Balkon [label="Ja"];
+    if_nicht_ebenerdig_außerhalb_fluchtlinie_offen -> Erker [label="Nein"];
+    Erker -> Auslucht [label="Doch nicht ebenerdig?"];
+    Terrasse -> Söller [label="Auf dem Dach?"];
+    Terrasse -> Veranda [label="Überdacht?"];
+    Veranda -> Porch [label="Bewohnt?"];
+    Veranda -> Portico [label="Vor der Haustüre?"];
+    Terrasse -> Beischlag [label="Vor der Haustüre"];
+    Terrasse -> Geräms [label="Mit Gittern verschlossen?"];
+    Anbau -> Wintergarten [label="Größtenteils aus Glas?"];
+    Auslucht -> Risalit [label="Auf ganzer Gebäudehöhe?"];
+    Säulengang -> Kolonnade [label="Gerades Gebälk?"];
+    Säulengang -> Arkade [label="Bogen nach außen?"];
+    Säulengang -> Bogengang[label="Bogen entlang des Ganges?"];
+    Arkade -> Bogengang [label="Bogen entlang des Ganges"];
+    Loggia -> Säulengang [label="Doch mehrere Nutzungseinheiten?"];
+
+    # Texte
+    if_ebenerdig [label="ebenerdig?"];
+    if_ebenerdig_fluchtlinie [label="Fluchtlinie des Gebäudes?"];
+    if_ebenerdig_innerhalb_fluchtlinie_nutzungseinheiten [label="Anzahl Nutzungseinheiten?"];
+    if_ebenerdig_außerhalbhalb_fluchtlinie_offen [label="Offen?"]
+    if_ebenerdig_außerhalbhalb_fluchtlinie_teilweise_offen_plattform [label="Plattform?"]
+    if_nicht_ebenerdig_fluchtlinie [label="Fluchtlinie des Gebäudes?"];
+    if_nicht_ebenerdig_außerhalb_fluchtlinie_offen [label="Nach außen offen?"];
+}
