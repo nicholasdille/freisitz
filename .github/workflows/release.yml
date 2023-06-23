@@ -1,0 +1,32 @@
+name: Release
+
+on:
+  push:
+    tags:
+    - 'v*'
+
+jobs:
+  release:
+    runs-on: ubuntu-22.04
+    steps:
+
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Build flowchart
+      run: |
+        git describe
+        echo "github.ref=${{ github.ref }}"
+        make freisitz.svg
+    
+    - name: Create release
+      id: create_release
+      uses: ncipollo/release-action@v1
+      with:
+        token: ${{ secrets.BOT_GITHUB_TOKEN }}
+        allowUpdates: true
+        name: "Version ${{ github.ref }}"
+        tag: ${{ github.ref }}
+        draft: false
+        replacesArtifacts: true
+        artifacts: "freisitz.svg"
