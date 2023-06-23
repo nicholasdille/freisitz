@@ -4,32 +4,32 @@ digraph {
 
     # Knoten
     node[shape="box", style="rounded"] Start;
-    node[shape="diamond"] if_ebenerdig;
-    node[shape="diamond"] if_ebenerdig_fluchtlinie;
-    node[shape="diamond"] if_ebenerdig_innerhalb_fluchtlinie_nutzungseinheiten;
-    node[shape="diamond"] if_ebenerdig_außerhalbhalb_fluchtlinie_offen;
-    node[shape="diamond"] if_ebenerdig_außerhalbhalb_fluchtlinie_teilweise_offen_plattform;
-    node[shape="diamond"] if_nicht_ebenerdig_fluchtlinie;
-    node[shape="diamond"] if_nicht_ebenerdig_außerhalb_fluchtlinie_offen;
-    node[shape="box", style="rounded", label=<<B>Söller/Altan(e)</B><br/>Offene Plattform<br/>Auf Stürtzen/Mauern> URL="https://de.wikipedia.org/wiki/S%C3%B6ller"] Söller;
-    node[shape="box", style="rounded", label=<<B>Balkon</B><br/>Plattform> URL="https://de.wikipedia.org/wiki/Balkon"] Balkon;
-    node[shape="box", style="rounded", label=<<B>Erker</B><br/>(Auskragung)<br/>Geschlossener Vorbau<br/>Überdacht<br/>Ein- oder mehrstöckig> URL="https://de.wikipedia.org/wiki/Erker"] Erker;
-    node[shape="box", style="rounded", label=<<B>Auslucht</B><br/>Befensteter Vorsprung<br/>Nicht auskragend<br/>Ebenerdig<br/>Sonderform des Erkers> URL="https://de.wikipedia.org/wiki/Auslucht"] Auslucht;
-    node[shape="box", style="rounded", label=<<B>Risalit</B><br/>Hervorspringender Gebäudeteil<br/>Auf ganzer Gebäudehöhe> URL="https://de.wikipedia.org/wiki/Risalit"] Risalit;
-    node[shape="box", style="rounded", label=<<B>Terrasse</B><br/>Plattform<br/>Ebenerdig> URL="https://de.wikipedia.org/wiki/Terrasse_(Architektur)"] Terrasse;
-    node[shape="box", style="rounded", label=<<B>Anbau</B><br/>Vergrößerung der Grundfläche<br/>Kleine, ebenerdige Erweiterung> URL="https://de.wikipedia.org/wiki/Anbau_(Geb%C3%A4ude)"] Anbau;
-    node[shape="box", style="rounded", label=<<B>Pergola</B><br/>Raumbildend<br/>Pfeiler-/Säulengang> URL="https://de.wikipedia.org/wiki/Pergola"] Pergola;
-    node[shape="box", style="rounded", label=<<B>Veranda</B><br/>Halboffen<br/>Überdacht> URL="https://de.wikipedia.org/wiki/Veranda"] Veranda;
-    node[shape="box", style="rounded", label=<<B>Porch</B><br/>Bewohnt<br/>"Einfach" geschlossen>] Porch;
-    node[shape="box", style="rounded", label=<<B>Portico</B><br/>Vor der Haustüre>] Portico;
-    node[shape="box", style="rounded", label=<<B>Beischlag</B><br/>Plattform<br/>Vor der Haustüre> URL="https://de.wikipedia.org/wiki/Beischlag"] Beischlag;
-    node[shape="box", style="rounded", label=<<B>Wintergarten</B><br/>Anbau<br/>Größtenteils aus Glas> URL="https://de.wikipedia.org/wiki/Wintergarten"] Wintergarten;
-    node[shape="box", style="rounded", label=<<B>Geräms</B><br/>Kastenartiger Vorbau<br/>Mit Gittern verschlossen> URL="https://de.wikipedia.org/wiki/Ger%C3%A4ms"] Geräms;
-    node[shape="box", style="rounded", label=<<B>Loggia</B><br/>Raum<br/>Nach außen offen<br/>Eine Nutzungseinheit> URL="https://de.wikipedia.org/wiki/Loggia"] Loggia;
-    node[shape="box", style="rounded", label=<<B>Säulengang</B><br/>Raum<br/>Nach außen offen<br/>Mehrere Nutzungseinheiten<br/>Dient der Erschließung>] Säulengang;
-    node[shape="box", style="rounded", label=<<B>Kolonnade</B><br/>Gerades Gebälk> URL="https://de.wikipedia.org/wiki/Kolonnade"] Kolonnade;
-    node[shape="box", style="rounded", label=<<B>Arkade</B><br/>Bogen zur Außenseite<br/>Von Pfeilern/Säulen getragen> URL="https://de.wikipedia.org/wiki/Arkade"] Arkade;
-    node[shape="box", style="rounded", label=<<B>Bogengang</B><br/>Bogen entlang des Ganges> URL="https://de.wikipedia.org/wiki/Bogengang_(Architektur)"] Bogengang;
+    node[shape="diamond" label="ebenerdig?"] if_ebenerdig;
+    node[shape="diamond" label="Fluchtlinie\ndes\nGebäudes?"] if_ebenerdig_fluchtlinie;
+    node[shape="diamond" label="Anzahl\nNutzungseinheiten?"] if_ebenerdig_innerhalb_fluchtlinie_nutzungseinheiten;
+    node[shape="diamond" label="Offen?"] if_ebenerdig_außerhalbhalb_fluchtlinie_offen;
+    node[shape="diamond" label="Plattform?"] if_ebenerdig_außerhalbhalb_fluchtlinie_teilweise_offen_plattform;
+    node[shape="diamond" label="Fluchtlinie\ndes\nGebäudes?"] if_nicht_ebenerdig_fluchtlinie;
+    node[shape="diamond" label="Nach\naußen\noffen?"] if_nicht_ebenerdig_außerhalb_fluchtlinie_offen;
+    node[shape="box", style="rounded", label="Söller/Altan(e)\nOffene Plattform\nAuf Stürtzen/Mauern" URL="https://de.wikipedia.org/wiki/S%C3%B6ller"] Söller;
+    node[shape="box", style="rounded", label="Balkon\nPlattform" URL="https://de.wikipedia.org/wiki/Balkon"] Balkon;
+    node[shape="box", style="rounded", label="Erker\n(Auskragung)\nGeschlossener Vorbau\nÜberdacht\nEin- oder mehrstöckig" URL="https://de.wikipedia.org/wiki/Erker"] Erker;
+    node[shape="box", style="rounded", label="Auslucht\nBefensteter Vorsprung\nNicht auskragend\nEbenerdig\nSonderform des Erkers" URL="https://de.wikipedia.org/wiki/Auslucht"] Auslucht;
+    node[shape="box", style="rounded", label="Risalit\nHervorspringender Gebäudeteil\nAuf ganzer Gebäudehöhe" URL="https://de.wikipedia.org/wiki/Risalit"] Risalit;
+    node[shape="box", style="rounded", label="Terrasse\nPlattform\nEbenerdig" URL="https://de.wikipedia.org/wiki/Terrasse_(Architektur)"] Terrasse;
+    node[shape="box", style="rounded", label="Anbau\nVergrößerung der Grundfläche\nKleine, ebenerdige Erweiterung" URL="https://de.wikipedia.org/wiki/Anbau_(Geb%C3%A4ude)"] Anbau;
+    node[shape="box", style="rounded", label="Pergola\nRaumbildend\nPfeiler-/Säulengang" URL="https://de.wikipedia.org/wiki/Pergola"] Pergola;
+    node[shape="box", style="rounded", label="Veranda\nHalboffen\nÜberdacht" URL="https://de.wikipedia.org/wiki/Veranda"] Veranda;
+    node[shape="box", style="rounded", label="Porch\nBewohnt\nEinfach geschlossen"] Porch;
+    node[shape="box", style="rounded", label="Portico\nVor der Haustüre"] Portico;
+    node[shape="box", style="rounded", label="Beischlag\nPlattform\nVor der Haustüre" URL="https://de.wikipedia.org/wiki/Beischlag"] Beischlag;
+    node[shape="box", style="rounded", label="Wintergarten\nAnbau\nGrößtenteils aus Glas" URL="https://de.wikipedia.org/wiki/Wintergarten"] Wintergarten;
+    node[shape="box", style="rounded", label="Geräms\nKastenartiger Vorbau\nMit Gittern verschlossen" URL="https://de.wikipedia.org/wiki/Ger%C3%A4ms"] Geräms;
+    node[shape="box", style="rounded", label="Loggia\nRaum\nNach außen offen\nEine Nutzungseinheit" URL="https://de.wikipedia.org/wiki/Loggia"] Loggia;
+    node[shape="box", style="rounded", label="Säulengang\nRaum\nNach außen offen\nMehrere Nutzungseinheiten\nDient der Erschließung"] Säulengang;
+    node[shape="box", style="rounded", label="Kolonnade\nGerades Gebälk" URL="https://de.wikipedia.org/wiki/Kolonnade"] Kolonnade;
+    node[shape="box", style="rounded", label="Arkade\nBogen zur Außenseite\nVon Pfeilern/Säulen getragen" URL="https://de.wikipedia.org/wiki/Arkade"] Arkade;
+    node[shape="box", style="rounded", label="Bogengang\nBogen entlang des Ganges" URL="https://de.wikipedia.org/wiki/Bogengang_(Architektur)"] Bogengang;
 
     # Kanten
     Start -> if_ebenerdig;
@@ -61,13 +61,4 @@ digraph {
     Säulengang -> Bogengang[label="Bogen entlang des Ganges?"];
     Arkade -> Bogengang [label="Bogen entlang des Ganges"];
     Loggia -> Säulengang [label="Doch mehrere Nutzungseinheiten?"];
-
-    # Texte
-    if_ebenerdig [label="ebenerdig?"];
-    if_ebenerdig_fluchtlinie [label="Fluchtlinie des Gebäudes?"];
-    if_ebenerdig_innerhalb_fluchtlinie_nutzungseinheiten [label="Anzahl Nutzungseinheiten?"];
-    if_ebenerdig_außerhalbhalb_fluchtlinie_offen [label="Offen?"];
-    if_ebenerdig_außerhalbhalb_fluchtlinie_teilweise_offen_plattform [label="Plattform?"]
-    if_nicht_ebenerdig_fluchtlinie [label="Fluchtlinie des Gebäudes?"];
-    if_nicht_ebenerdig_außerhalb_fluchtlinie_offen [label="Nach außen offen?"];
 }
