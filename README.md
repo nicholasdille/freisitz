@@ -12,4 +12,4 @@ Im [aktuellen Release](https://github.com/nicholasdille/freisitz/releases/latest
 
 ## Entscheidungsbaum
 
-![](https://nicholasdille.github.io/freisitz/freisitz.svg)
+[![](https://nicholasdille.github.io/freisitz/freisitz.svg)](https://nicholasdille.github.io/freisitz/)
