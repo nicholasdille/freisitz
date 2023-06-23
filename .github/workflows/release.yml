@@ -35,9 +35,13 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v2
 
+    - name: Install prerequisites
+      run: |
+        sudo apt-get update
+        sudp apt-get -y install graphviz
+
     - name: Build flowchart
       run: |
-        echo "ref=${{ needs.prepare.outputs.tag }}"
         make freisitz.svg
     
     - name: Create release
