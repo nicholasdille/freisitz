@@ -6,8 +6,30 @@ on:
     - 'v*'
 
 jobs:
+
+  prepare:
+    name: Prepare
+    runs-on: ubuntu-22.04
+    outputs:
+      tag: ${{ steps.get_version.outputs.tag }}
+    steps:
+
+    - name: printenv
+      run: |
+        printenv | sort
+
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    - name: Get version
+      id: get_version
+      run: |
+        TAG="${GITHUB_REF#refs/tags/}"
+        echo "tag=${TAG}" >>"${GITHUB_OUTPUT}"
+
   release:
     runs-on: ubuntu-22.04
+    needs: prepare
     steps:
 
     - name: Checkout code
@@ -15,8 +37,7 @@ jobs:
 
     - name: Build flowchart
       run: |
-        git describe
-        echo "github.ref=${{ github.ref }}"
+        echo "ref=${{ needs.prepare.outputs.tag }}"
         make freisitz.svg
     
     - name: Create release
