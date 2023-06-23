@@ -38,7 +38,7 @@ jobs:
     - name: Install prerequisites
       run: |
         sudo apt-get update
-        sudp apt-get -y install graphviz
+        sudo apt-get -y install graphviz
 
     - name: Build flowchart
       run: |
