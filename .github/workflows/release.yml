@@ -50,8 +50,8 @@ jobs:
       with:
         token: ${{ secrets.BOT_GITHUB_TOKEN }}
         allowUpdates: true
-        name: "Version ${{ github.ref }}"
-        tag: ${{ github.ref }}
+        name: "Version ${{ needs.prepare.outputs.tag }}"
+        tag: ${{ needs.prepare.outputs.tag }}
         draft: false
         replacesArtifacts: true
         artifacts: "freisitz.svg"
