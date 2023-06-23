@@ -4,6 +4,13 @@ digraph {
 
     # Knoten
     node[shape="box", style="rounded"] Start;
+    node[shape="diamond"] if_ebenerdig;
+    node[shape="diamond"] if_ebenerdig_fluchtlinie;
+    node[shape="diamond"] if_ebenerdig_innerhalb_fluchtlinie_nutzungseinheiten;
+    node[shape="diamond"] if_ebenerdig_außerhalbhalb_fluchtlinie_offen;
+    node[shape="diamond"] if_ebenerdig_außerhalbhalb_fluchtlinie_teilweise_offen_plattform;
+    node[shape="diamond"] if_nicht_ebenerdig_fluchtlinie;
+    node[shape="diamond"] if_nicht_ebenerdig_außerhalb_fluchtlinie_offen;
     node[shape="box", style="rounded", label=<<B>Söller/Altan(e)</B><br/>Offene Plattform<br/>Auf Stürtzen/Mauern> URL="https://de.wikipedia.org/wiki/S%C3%B6ller"] Söller;
     node[shape="box", style="rounded", label=<<B>Balkon</B><br/>Plattform> URL="https://de.wikipedia.org/wiki/Balkon"] Balkon;
     node[shape="box", style="rounded", label=<<B>Erker</B><br/>(Auskragung)<br/>Geschlossener Vorbau<br/>Überdacht<br/>Ein- oder mehrstöckig> URL="https://de.wikipedia.org/wiki/Erker"] Erker;
@@ -23,16 +30,9 @@ digraph {
     node[shape="box", style="rounded", label=<<B>Kolonnade</B><br/>Gerades Gebälk> URL="https://de.wikipedia.org/wiki/Kolonnade"] Kolonnade;
     node[shape="box", style="rounded", label=<<B>Arkade</B><br/>Bogen zur Außenseite<br/>Von Pfeilern/Säulen getragen> URL="https://de.wikipedia.org/wiki/Arkade"] Arkade;
     node[shape="box", style="rounded", label=<<B>Bogengang</B><br/>Bogen entlang des Ganges> URL="https://de.wikipedia.org/wiki/Bogengang_(Architektur)"] Bogengang;
-    node[shape="diamond", style=""] if_ebenerdig;
-    node[shape="diamond", style=""] if_ebenerdig_fluchtlinie;
-    node[shape="diamond", style=""] if_ebenerdig_innerhalb_fluchtlinie_nutzungseinheiten;
-    node[shape="diamond", style=""] if_ebenerdig_außerhalbhalb_fluchtlinie_offen;
-    node[shape="diamond", style=""] if_ebenerdig_außerhalbhalb_fluchtlinie_teilweise_offen_plattform;
-    node[shape="diamond", style=""] if_nicht_ebenerdig_fluchtlinie;
-    node[shape="diamond", style=""] if_nicht_ebenerdig_außerhalb_fluchtlinie_offen;
 
     # Kanten
-    start -> if_ebenerdig;
+    Start -> if_ebenerdig;
     if_ebenerdig -> if_ebenerdig_fluchtlinie [label="Ja"];
     if_ebenerdig -> if_nicht_ebenerdig_fluchtlinie [label="Nein"];
     if_ebenerdig_fluchtlinie -> if_ebenerdig_innerhalb_fluchtlinie_nutzungseinheiten [label="Ja"];
@@ -66,7 +66,7 @@ digraph {
     if_ebenerdig [label="ebenerdig?"];
     if_ebenerdig_fluchtlinie [label="Fluchtlinie des Gebäudes?"];
     if_ebenerdig_innerhalb_fluchtlinie_nutzungseinheiten [label="Anzahl Nutzungseinheiten?"];
-    if_ebenerdig_außerhalbhalb_fluchtlinie_offen [label="Offen?"]
+    if_ebenerdig_außerhalbhalb_fluchtlinie_offen [label="Offen?"];
     if_ebenerdig_außerhalbhalb_fluchtlinie_teilweise_offen_plattform [label="Plattform?"]
     if_nicht_ebenerdig_fluchtlinie [label="Fluchtlinie des Gebäudes?"];
     if_nicht_ebenerdig_außerhalb_fluchtlinie_offen [label="Nach außen offen?"];
