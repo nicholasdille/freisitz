@@ -1,4 +1,4 @@
-name: Publish flowchart
+name: Pages
 
 on:
   workflow_run:
@@ -30,6 +30,20 @@ jobs:
     - name: Fetch latest flowchart
       run: |
         curl --silent --location --fail --remote-name --url https://github.com/nicholasdille/freisitz/releases/latest/download/freisitz.svg
+
+    - name: Create dummy index page
+      run: |
+        cat <<EOF >index.html
+        <!DOCTYPE html>
+        <html>
+        <head>
+          <title>Freisitz</title>
+        </head>
+        <body>
+          <object type="image/svg+xml" data="freisitz.svg"></object>
+        </body>
+        </html>
+        EOF
 
     - name: Upload artifact
       uses: actions/upload-pages-artifact@v1
