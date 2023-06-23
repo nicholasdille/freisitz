@@ -9,3 +9,7 @@ Hat Du Dich schonmal gefragt, ...
 Dann bist Du hier genau richtig!
 
 Im [aktuellen Release](https://github.com/nicholasdille/freisitz/releases/latest/download/freisitz.svg) findest Du eine SVG-Datei, die Dir bei der Beantwortung dieser Fragen hilft.
+
+## Entscheidungsbaum
+
+![](https://nicholasdille.github.io/freisitz/freisitz.svg)
