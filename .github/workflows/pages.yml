@@ -29,7 +29,7 @@ jobs:
 
     - name: Fetch latest flowchart
       run: |
-        cp https://github.com/nicholasdille/freisitz/releases/latest/download/freisitz.svg .
+        curl --silent --location --fail --remote-name --url https://github.com/nicholasdille/freisitz/releases/latest/download/freisitz.svg
 
     - name: Upload artifact
       uses: actions/upload-pages-artifact@v1
